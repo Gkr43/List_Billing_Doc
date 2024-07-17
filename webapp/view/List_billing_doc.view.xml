@@ -1,0 +1,349 @@
+<mvc:View controllerName="listbillingdoc.controller.List_billing_doc"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:ui="sap.ui.table" xmlns:l="sap.ui.layout.form">
+    <Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="List of Billing Documents ">
+
+					<content>
+		<l:SimpleForm editable="true">
+		 <l:content>
+		<Label text="POAM No" />
+            <Input value="{localModel>Amdno}" id="POAMNumber" showValueHelp="true"
+			 valueHelpRequest="onValueHelpPoamnumber" width="18rem"></Input>
+		</l:content>
+		</l:SimpleForm>
+
+
+			<ui:Table  id="ListTable" rowSelectionChange="onSelectRows" rows="{localModel>/items}" visibleRowCount="8" rowsUpdated="onUpdateRows" >
+						<ui:extension>
+							<OverflowToolbar>
+                             <Title text="{i18n>title}" />
+								<ToolbarSpacer/>
+                                
+							 <Button id="SaveList" text="Save"  press="onSaveListDocs"/> 
+						</OverflowToolbar>
+						</ui:extension>
+						<ui:columns>
+
+                        <ui:Column width="10rem">
+							<Label text="POAM ID"></Label>
+							<ui:template>
+							<Text text="{localModel>AmdID}"></Text>
+							</ui:template>
+							</ui:Column >
+
+							<ui:Column width="10rem">
+							<Label text="POAM No"></Label>
+							<ui:template>
+							<Text text="{localModel>Amdno}"></Text>
+							</ui:template>
+							</ui:Column >
+
+							<ui:Column width="5rem">
+							<Label text="Vendor"></Label>
+							<ui:template>
+							<Text text="{localModel>Lifnr}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="6rem">
+							<Label text="PO Number"></Label>
+							<ui:template>
+							<Text text="{localModel>Bstnk}"></Text>
+							</ui:template>
+							</ui:Column >
+
+							<ui:Column width="5rem">
+							<Label text="PO item"></Label>
+							<ui:template>
+							<Text text="{localModel>Posex}"></Text>
+							</ui:template>
+							</ui:Column>
+							
+							<ui:Column width="6rem">
+							<Label text="Cust.material"></Label>
+							<ui:template>
+							<Text text="{localModel>Kdmat}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="8rem">
+							<Label text="Short Text"></Label>
+							<ui:template>
+							<Text text="{localModel>Short Text}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="5rem">
+							<Label text="Unloading Point"></Label>
+							<ui:template>
+							<Text text="{localModel>Txz01}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="8rem">
+							<Label text="Condition Type"></Label>
+							<ui:template>
+							<Text text="{localModel>Ablad}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="8rem">
+							<Label text="Old From"></Label>
+							<ui:template>
+							<Text text="{localModel>Pcond}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="8rem">
+							<Label text="Old Price"></Label>
+							<ui:template>
+							<Text text="{localModel>Oldfr}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="8rem">
+							<Label text="New From"></Label>
+							<ui:template>
+							<Text text="{localModel>Oldpr}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="8rem">
+							<Label text="New Price"></Label>
+							<ui:template>
+							<Text text="{localModel>Newpr}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="5rem">
+							<Label text="Currency"></Label>
+							<ui:template>
+							<Text text="{localModel>Newpr}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="5rem">
+							<Label text="Base Unit"></Label>
+							<ui:template>
+							<Text text="{localModel>Waers}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="8rem">
+							<Label text="Ex Track"></Label>
+							<ui:template>
+							<Text text="{localModel>Meins}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="8rem">
+							<Label text="New Track"></Label>
+							<ui:template>
+							<Text text="{localModel>Etrac}"></Text>
+							</ui:template>
+							</ui:Column>
+
+                            <ui:Column width="8rem">
+							<Label text="New Utpto"></Label>
+							<ui:template>
+							<Text text="{localModel>Ntrac}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Cond.record no."></Label>
+							<ui:template>
+							<Text text="{localModel>Newto}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Sales Document"></Label>
+							<ui:template>
+							<Text text="{localModel>Knumh}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Item"></Label>
+							<ui:template>
+							<Text text="{localModel>Refno}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Sales Document"></Label>
+							<ui:template>
+							<Text text="{localModel>Ritem}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Item"></Label>
+							<ui:template>
+							<Text text="{localModel>Aubel}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Sales Org."></Label>
+							<ui:template>
+							<Text text="{localModel>Aupos}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Distr. Channel"></Label>
+							<ui:template>
+							<Text text="{localModel>Vkorg}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Divisiono"></Label>
+							<ui:template>
+							<Text text="{localModel>Vtweg}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Customer"></Label>
+							<ui:template>
+							<Text text="{localModel>Spart}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Material"></Label>
+							<ui:template>
+							<Text text="{localModel>Material}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Plant"></Label>
+							<ui:template>
+							<Text text="{localModel>Plant}"></Text>
+							</ui:template>
+							</ui:Column>
+
+
+							<ui:Column width="8rem">
+							<Label text="Stor. Location"></Label>
+							<ui:template>
+							<Text text="{localModel>Kunnr}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Shipping Point"></Label>
+							<ui:template>
+							<Text text="{localModel>Matnr}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Unit of measure"></Label>
+							<ui:template>
+							<Text text="{localModel>Werks}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Ship-to party"></Label>
+							<ui:template>
+							<Text text="{localModel>Lgort}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Pricing unit"></Label>
+							<ui:template>
+							<Text text="{localModel>Vstel}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Condition Type"></Label>
+							<ui:template>
+							<Text text="{localModel>Kmein}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="End Date"></Label>
+							<ui:template>
+							<Text text="{localModel>Kunwe}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Sales Doc. Type"></Label>
+							<ui:template>
+							<Text text="{localModel>Kpein}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Entered on"></Label>
+							<ui:template>
+							<Text text="{localModel>Kschl}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Entered at"></Label>
+							<ui:template>
+							<Text text="{localModel>Sdate}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="User name"></Label>
+							<ui:template>
+							<Text text="{localModel>Auart}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Change Date"></Label>
+							<ui:template>
+							<Text text="{localModel>Usnam}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Change Time"></Label>
+							<ui:template>
+							<Text text="{localModel>Cngdt}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Change By"></Label>
+							<ui:template>
+							<Text text="{localModel>Chusr}"></Text>
+							</ui:template>
+							</ui:Column>
+
+							<ui:Column width="8rem">
+							<Label text="Tax code"></Label>
+							<ui:template>
+							<Text text="{localModel>Mwskz}"></Text>
+							</ui:template>
+							</ui:Column>	
+								
+						</ui:columns>
+					</ui:Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
+								
+								
+							
